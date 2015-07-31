@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "func-names": 1,
+    "indent": [2, "tab"],
+    "linebreak-style": [2, "unix"],
+    "quotes": [2, "single", "avoid-escape"],
+    "semi": [2, "always"],
+    "strict": [2, "global"]
+  },
+  "env": {
+    "node": true
+  }
+}
