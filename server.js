@@ -1,8 +1,9 @@
 'use strict';
-var Hapi, server;
+var Hapi, server, Good;
 
 // require dependencies
 Hapi = require('hapi');
+Good = require('good');
 
 // create server
 server = new Hapi.Server();
@@ -25,7 +26,25 @@ server.route({
 	}
 });
 
-// start server
-server.start(function startHapiServer() {
-	console.log('Server running at:' + server.info.uri);
+// set up plugins
+server.register({
+	register: Good,
+	options: {
+		reporters: [{
+			reporter: require('good-console'),
+			events: {
+				response: '*',
+				log: '*'
+			}
+		}]
+	}
+}, function serverPluginCallback(err) {
+	if(err) {
+		throw err;
+	}
+
+	// start server
+	server.start(function startHapiServer() {
+		server.log('info', 'Server running at:' + server.info.uri);
+	});
 });
