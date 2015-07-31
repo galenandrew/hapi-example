@@ -1,0 +1,19 @@
+{
+  "name": "hapi-tutorial",
+  "version": "1.0.0",
+  "description": "Tutorial from HAPI's website",
+  "main": "server.js",
+  "scripts": {
+    "start": "./node_modules/.bin/node-supervisor server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Turner",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^8.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^0.24.1",
+    "supervisor": "^0.7.1"
+  }
+}
